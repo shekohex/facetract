@@ -1,6 +1,6 @@
 use facetract::FaceTract;
 #[test]
-fn it_loads_model() { FaceTract::new(); }
+fn it_loads_model() { FaceTract::default(); }
 #[test]
 fn it_works() {
     let img = image::open("tests/images/adel.jpeg").unwrap();
