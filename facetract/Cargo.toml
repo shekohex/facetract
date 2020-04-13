@@ -9,6 +9,11 @@ tensorflow = "0.15"
 image = { version = "0.23", default-features = false }
 num-traits = "0.2"
 thiserror = "1.0"
+serde = { version = "1", optional = true, features = ["derive"] }
+
+
+[features]
+default = ["serde"]
 
 [dev-dependencies]
 image = "0.23"

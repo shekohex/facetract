@@ -20,6 +20,7 @@ use tensorflow::{
 static MODEL: &[u8] = include_bytes!("../assets/mtcnn.pb");
 
 /// Holds two points (x1, y1) and (x2, y2) that represent a `Bordered Box`
+#[cfg_attr(feature = "serde", derive(serde::Serialize))]
 #[derive(Copy, Clone, Debug, PartialEq, PartialOrd)]
 pub struct FaceLocationBox {
     /// The X-axis part of the first point
@@ -53,6 +54,7 @@ impl FaceLocationBox {
 
 /// Holds the location of the extracted Face, also  how likely it is that face
 /// of a Human!
+#[cfg_attr(feature = "serde", derive(serde::Serialize))]
 #[derive(Copy, Clone, Debug)]
 pub struct Face {
     location: FaceLocationBox,
