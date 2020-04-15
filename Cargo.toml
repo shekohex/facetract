@@ -1,10 +1,22 @@
-[workspace]
-members = [
-  "facetract",
-  "facetractd"  
-]
+[package]
+name = "facetract"
+version = "0.1.0"
+authors = ["Shady Khalifa <shekohex@gmail.com>"]
+edition = "2018"
 
-[profile.release]
-lto = true
-codegen-units = 1
-debug = true
+[dependencies]
+tensorflow = "0.15"
+image = { version = "0.23", default-features = false }
+num-traits = "0.2"
+thiserror = "1"
+serde = { version = "1", optional = true, features = ["derive"] }
+# CLI Deps
+argh = { version = "0.1", optional = true }
+anyhow = { version = "1", optional = true }
+
+[features]
+default = ["cli", "serde"]
+cli = ["argh", "anyhow", "image/jpeg", "image/png"]
+
+[dev-dependencies]
+image = "0.23"
